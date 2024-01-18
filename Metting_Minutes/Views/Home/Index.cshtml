@@ -1,0 +1,336 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+<body style="height: 100vh; overflow-y: auto;">
+    <form action="" method="post">
+        <div class="card h-75"  style="height: 100vh;">
+            <div class="container mt-2">
+                <div class="card">
+                    <h4 class="card-header">Meeting Minutes</h4>
+                    @*Metting type section*@
+                    <div class="card-body p-1 m-1">
+                        <div class="form-group row">
+                            <div class="form-check">
+                                <input type="radio" name="meetingType" value="corporate" checked>
+                                <label class="form-check-label" for="corporate">Corporate</label>
+
+                                <input type="radio" name="meetingType" class="m-lg-2" value="individual">
+                                <label class="form-check-label" for="individual">Individual</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               @*Meeting details section*@
+                <div class="row mt-1">
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-body  p-1 m-1">
+
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label">Customer Name:</label>
+                                    <div class="col-sm-8" id="corporateDropdownContainer">
+                                        <select class="form-control" name="CustomerName">
+                                            <option selected disabled>--Select Name--</option>
+                                            @foreach (var d in ViewBag.CorporateData)
+                                            {
+                                                <option value="@d.CustomerName">@d.CustomerName</option>
+                                            }
+                                        </select>
+
+                                    </div>
+                                    <div class="col-sm-8" id="individualDropdownContainer" style="display: none;">
+                                        <select class="form-control" name="CustomerName">
+                                            <option selected disabled>--Select Name--</option>
+                                            @foreach (var d in ViewBag.IndividualData)
+                                            {
+                                                <option value="@d.CustomerName">@d.CustomerName</option>
+                                            }
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-4">
+                                        <label class="col-form-label">Date:</label>
+                                        <input type="date" name="Date" class="form-control" />
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <label class="col-form-label">Time:</label>
+                                        <input type="time" name="Time" class="form-control" id="timeInput" readonly />
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label">Meeting Place:</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" name="MeetingPlace"value="" placeholder="Enter meeting place" />
+                                        <span class="text-danger">@Html.ValidationMessage("MeetingPlace")</span>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label">Attends from Client's Server:</label>
+                                    <div class="col-sm-8">
+                                        <textarea class="form-control" name="AttendsFromClientSide" placeholder="Enter attendees from client's server"></textarea>
+                                        <span class="text-danger">@Html.ValidationMessage("AttendsFromClientSide")</span>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label">Attends from Host's Server:</label>
+                                    <div class="col-sm-8">
+                                        <textarea class="form-control" name="AttendsFromHostSide" placeholder="Enter attendees from host's server"></textarea>
+                                        <span class="text-danger">@Html.ValidationMessage("AttendsFromHostSide")</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @*Metting right section*@
+                    <div class="col-md-6">
+                        <div class="card">
+
+                            <div class="card-body  p-1 m-1">
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label">Meeting Agenda:</label>
+                                    <div class="col-sm-8">
+                                        <textarea class="form-control" name="MeettingAgenda" placeholder="Enter meeting agenda"></textarea>
+                                        <span class="text-danger">@Html.ValidationMessage("MeettingAgenda")</span>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label">Meeting Discussion:</label>
+                                    <div class="col-sm-8">
+                                        <textarea class="form-control" name="MeetingDisCussion" placeholder="Enter meeting discussion"></textarea>
+                                        <span class="text-danger">@Html.ValidationMessage("MeetingDisCussion")</span>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label">Meeting Decision:</label>
+                                    <div class="col-sm-8">
+                                        <textarea class="form-control" name="MettingDecision" placeholder="Enter meeting decision"></textarea>
+                                        <span class="text-danger">@Html.ValidationMessage("MettingDecision")</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @*Store this section in Final product database table*@
+
+                <div class="card mt-1">
+                    <div class="card-body p-1 m-1">
+                        <div class="row">
+                            <div class="row">
+
+                                <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">Product/Service Name:</label>
+                                    <div class="col-sm-8">
+                                        <select class="form-control" name="ProductName" id="productNameDropdown">
+                                            <option selected disabled>--Select Product--</option>
+                                            @if (ViewBag.Product != null)
+                                            {
+                                                foreach (var d in ViewBag.Product)
+                                                {
+                                                    <option value="@d.Product_Service" data-unit="@d.Unit">@d.Product_Service</option>
+                                                }
+                                            }
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">Quantity</label>
+                                    <div class="col-md-2">
+                                        <input type="text" class="form-control mb-2" name="Quantity" id="quantityField" placeholder="Enter quantity" />
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-3 col-form-label mr-2">Unit:</label>
+                                        <div class="col-sm-2 ml-2">
+                                            <input type="text" class="form-control" name="Unit" id="unitField" placeholder="Enter unit" readonly />
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">                             
+                                    <button type="button" class="btn btn-primary" onclick="addFinalProduct()">+ ADD</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card mt-4 ">
+                        <div class="card-body p-1 m-1">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover">
+                                    <thead class="thead-dark">
+                                        <tr>
+                                            <th scope="col">SN</th>
+                                            <th scope="col">Interest Product/Service Name</th>
+                                            <th scope="col">Quantity</th>
+                                            <th scope="col">Unit</th>
+                                            <th scope="col">Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="finalProductsTableBody">
+                                        @foreach (var i in ViewBag.Finalproduct)
+                                        {
+                                            <tr>
+                                                <th scope="row">@i.id</th>
+                                                <td>@i.ProductName</td>
+                                                <td>@i.Quantity</td>
+                                                <td>@i.Unit</td>
+
+                                                <td><a class="btn btn-outline-success btn-sm" href="/Home/EditProduct/@i.id">Edit</a></td>
+                                                <td><button class="btn btn-outline-danger btn-sm" data-id="@i.id" onclick="deleteItem(this)">Delete</button></td>
+
+
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="card mt-4">
+                        <div class="card-body p-1 m-1">
+                            <input type="submit" class="btn btn-success" value="Save" />
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+    </form>
+    <button class="btn btn-secondary" onclick="refreshFinalProducts()">Refresh</button>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Get the current time
+            var currentTime = new Date();
+
+            // Format the time as HH:mm
+            var hours = currentTime.getHours();
+            var minutes = currentTime.getMinutes();
+            var formattedTime = (hours < 10 ? "0" : "") + hours + ":" + (minutes < 10 ? "0" : "") + minutes;
+
+            // Set the value of the time input field
+            document.getElementById("timeInput").value = formattedTime;
+
+            // Give focus to the time input field
+            document.getElementById("timeInput").focus();
+        });
+
+
+        /*this is for show the different data from different database*/
+    $(document).ready(function () {      
+        $('input[type=radio][name=meetingType]').change(function () {
+            var selectedValue = $(this).val();
+            if (selectedValue === "corporate") {  
+                $('#corporateDropdownContainer').show();
+                $('#individualDropdownContainer').hide();
+            } else if (selectedValue === "individual") {    
+                $('#corporateDropdownContainer').hide();
+                $('#individualDropdownContainer').show();
+            }
+        });
+
+        // this is for product drop down 
+        $('#productNameDropdown').change(function () {        
+            var selectedOption = $(this).find('option:selected');
+            var unit = selectedOption.data('unit');
+            // this is for same unit in the table row
+            $('#unitField').val(unit);
+        });
+    });
+
+    // this array for storing temporary data when i add the data 
+    var temporaryData = [];
+    // this if or adding 
+    function addFinalProduct() {
+        var productName = $('#productNameDropdown').val();
+        var quantity = $('#quantityField').val();
+        var unit = $('#unitField').val();
+        temporaryData.push({
+            ProductName: productName,
+            Quantity: quantity,
+            Unit: unit
+
+
+        });
+        // Reset input fields
+        $('#productNameDropdown').val('--Select Product--');
+        $('#quantityField').val('');
+        $('#unitField').val('');
+
+
+        console.log('Data added:', temporaryData);
+        updateTable();
+    }
+
+    //this for updatating table content with temp data
+    function updateTable() {
+        var tableBody = $('#finalProductsTableBody');
+        tableBody.empty(); // Clear existing row
+        temporaryData.forEach(function (item, index) {
+            var row = $('<tr>');
+            row.append('<td>' + (index + 1) + '</td>');
+            row.append('<td>' + item.ProductName + '</td>');
+            row.append('<td>' + item.Quantity + '</td>');
+            row.append('<td>' + item.Unit + '</td>');
+            row.append('<td><button class="btn btn-outline-danger btn-sm" onclick="removeItem(' + index + ')">Remove</button></td>');
+
+            tableBody.append(row);
+        });
+
+        console.log('Table updated:', temporaryData);
+    }
+
+    function removeItem(index) {
+        // Remove item from the temporary array
+        temporaryData.splice(index, 1);
+        console.log('Item removed:', temporaryData);
+        updateTable();
+    }
+   
+
+    //Delete the data without reload page 
+    function deleteItem(button) {
+        event.preventDefault(); // Prevent the default form submission behavior
+        var id = $(button).data('id');
+        $.ajax({
+            url: '/Home/deleteProduct/' + id,
+            type: 'GET',
+            success: function () {
+                $(button).closest('tr').remove();// remove the table row
+            },
+            error: function (error) {
+                console.error('Error deleting item:', error);
+            }
+        });
+    }
+    // after refreshing all the temporary data has been gone 
+    function refreshFinalProducts() {
+        temporaryData = [];
+        updateTable();
+        console.log('Data cleared:', temporaryData);
+        }
+
+</script>
+</body>
+</html>

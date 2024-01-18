@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Metting_MinutesModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Corporate_table">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustomerName" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="FinalProduct">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductName" Type="varchar" MaxLength="50" />
+    <Property Name="Unit" Type="varchar" MaxLength="50" />
+    <Property Name="Quantity" Type="int" />
+  </EntityType>
+  <EntityType Name="Individual_table">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustomerName" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Metting_Details">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustomerName" Type="varchar" MaxLength="50" />
+    <Property Name="Date" Type="date" />
+    <Property Name="Time" Type="time" Precision="7" />
+    <Property Name="AttendsFromClientSide" Type="varchar" MaxLength="100" />
+    <Property Name="AttendsFromHostSide" Type="varchar" MaxLength="50" />
+    <Property Name="MeettingAgenda" Type="varchar" MaxLength="50" />
+    <Property Name="MeetingDisCussion" Type="varchar" MaxLength="50" />
+    <Property Name="MettingDecision" Type="varchar" MaxLength="50" />
+    <Property Name="MeetingPlace" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Product_Unit">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Product_Service" Type="varchar" MaxLength="50" />
+    <Property Name="Unit" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityContainer Name="Metting_MinutesModelStoreContainer">
+    <EntitySet Name="Corporate_table" EntityType="Self.Corporate_table" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FinalProduct" EntityType="Self.FinalProduct" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Individual_table" EntityType="Self.Individual_table" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Metting_Details" EntityType="Self.Metting_Details" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Product_Unit" EntityType="Self.Product_Unit" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

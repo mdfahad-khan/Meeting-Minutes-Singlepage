@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33829.357
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Metting_Minutes", "Metting_Minutes\Metting_Minutes.csproj", "{1EE0D32F-A427-4F33-A81F-A6E38C801F9F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1EE0D32F-A427-4F33-A81F-A6E38C801F9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1EE0D32F-A427-4F33-A81F-A6E38C801F9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1EE0D32F-A427-4F33-A81F-A6E38C801F9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1EE0D32F-A427-4F33-A81F-A6E38C801F9F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B1D9455D-B529-4654-B71F-77118B482893}
+	EndGlobalSection
+EndGlobal

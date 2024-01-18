@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Metting_MinutesModelStoreContainer" CdmEntityContainer="Metting_MinutesEntities1">
+    <EntitySetMapping Name="Corporate_table">
+      <EntityTypeMapping TypeName="Metting_MinutesModel.Corporate_table">
+        <MappingFragment StoreEntitySet="Corporate_table">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FinalProducts">
+      <EntityTypeMapping TypeName="Metting_MinutesModel.FinalProduct">
+        <MappingFragment StoreEntitySet="FinalProduct">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="Unit" ColumnName="Unit" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Individual_table">
+      <EntityTypeMapping TypeName="Metting_MinutesModel.Individual_table">
+        <MappingFragment StoreEntitySet="Individual_table">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Metting_Details">
+      <EntityTypeMapping TypeName="Metting_MinutesModel.Metting_Details">
+        <MappingFragment StoreEntitySet="Metting_Details">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="AttendsFromClientSide" ColumnName="AttendsFromClientSide" />
+          <ScalarProperty Name="AttendsFromHostSide" ColumnName="AttendsFromHostSide" />
+          <ScalarProperty Name="MeettingAgenda" ColumnName="MeettingAgenda" />
+          <ScalarProperty Name="MeetingDisCussion" ColumnName="MeetingDisCussion" />
+          <ScalarProperty Name="MettingDecision" ColumnName="MettingDecision" />
+          <ScalarProperty Name="MeetingPlace" ColumnName="MeetingPlace" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Product_Unit">
+      <EntityTypeMapping TypeName="Metting_MinutesModel.Product_Unit">
+        <MappingFragment StoreEntitySet="Product_Unit">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Product_Service" ColumnName="Product_Service" />
+          <ScalarProperty Name="Unit" ColumnName="Unit" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
